@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showin="navigation_view"
+    >
 
-    <item
-        android:id="@+id/overflowMenu"
-        android:icon="@drawable/save"
-        android:title=""
-        app:showAsAction="always">
-        <menu>
-            <item
-                android:icon="@drawable/save"
-                android:title="Setting"
-                />
-            <item
-                android:icon="@drawable/save"
-                android:title="Logout"
-                />
-        </menu>
-    </item>
+    <group android:checkableBehavior="single">
+        <item android:title="Calculator">
+            <menu>
+                <item android:id="@+id/id_standard"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Standard"/>
+                <item android:id="@+id/id_scientific"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Scientific"/>
+                <item android:id="@+id/id_graphic"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Graphic"/>
+                <item android:id="@+id/id_programmer"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Programmer"/>
+                <item android:id="@+id/id_date_calculator"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Date Calculator"/>
+            </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Converter">
+            <menu>
+                <item android:id="@+id/id_currency"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Currency"/>
+                <item android:id="@+id/id_volume"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Volume"/>
+                <item android:id="@+id/id_length"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Length"/>
+                <item android:id="@+id/id_weight_mass"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Weigth And Mass"/>
+                <item android:id="@+id/id_temperature"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Temperature"/>
+                <item android:id="@+id/id_energy"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Energy"/>
+                <item android:id="@+id/id_angle"
+                    android:icon="@drawable/standard_icon"
+                    android:title="Angle"/>
+            </menu>
+        </item>
+    </group>
+
+    <item android:id="@+id/id_share"
+        android:icon="@drawable/standard_icon"
+        android:title="Share"/>
+
+    <item android:id="@+id/id_feedback"
+        android:icon="@drawable/standard_icon"
+        android:title="Feed-Back"/>
+
 </menu>

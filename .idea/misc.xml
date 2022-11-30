@@ -4,9 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/delete_one.xml" value="0.1125" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/menu_icons.xml" value="0.1015" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/rounded.xml" value="0.1885" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/menu/menu.xml" value="0.14792646430098333" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/activity_root_fragment.xml" value="0.12658227848101267" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/activity_rootfragment.xml" value="0.1" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/activity_sidebar_navigation.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/activity_temperature.xml" value="0.1513467293715263" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/fragment_standard.xml" value="0.14792646430098333" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/nav_bar_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/menu/menu.xml" value="0.22" />
       </map>
     </option>
   </component>
