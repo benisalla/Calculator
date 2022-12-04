@@ -12,16 +12,16 @@
                     android:icon="@drawable/standard_icon"
                     android:title="Standard"/>
                 <item android:id="@+id/id_scientific"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/scientific_icon"
                     android:title="Scientific"/>
                 <item android:id="@+id/id_graphic"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/graphic_icon"
                     android:title="Graphic"/>
                 <item android:id="@+id/id_programmer"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/programmer_icon"
                     android:title="Programmer"/>
                 <item android:id="@+id/id_date_calculator"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/date_calculator_icon"
                     android:title="Date Calculator"/>
             </menu>
         </item>
@@ -31,36 +31,36 @@
         <item android:title="Converter">
             <menu>
                 <item android:id="@+id/id_currency"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/currency_icon"
                     android:title="Currency"/>
                 <item android:id="@+id/id_volume"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/volume_icon"
                     android:title="Volume"/>
                 <item android:id="@+id/id_length"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/length_icon"
                     android:title="Length"/>
                 <item android:id="@+id/id_weight_mass"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/weight_icon"
                     android:title="Weigth And Mass"/>
                 <item android:id="@+id/id_temperature"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/temperature_icon"
                     android:title="Temperature"/>
                 <item android:id="@+id/id_energy"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/energy_icon"
                     android:title="Energy"/>
                 <item android:id="@+id/id_angle"
-                    android:icon="@drawable/standard_icon"
+                    android:icon="@drawable/angle_icon"
                     android:title="Angle"/>
             </menu>
         </item>
     </group>
 
     <item android:id="@+id/id_share"
-        android:icon="@drawable/standard_icon"
+        android:icon="@drawable/share_icon"
         android:title="Share"/>
 
     <item android:id="@+id/id_feedback"
-        android:icon="@drawable/standard_icon"
+        android:icon="@drawable/feedback_icon"
         android:title="Feed-Back"/>
 
 </menu>

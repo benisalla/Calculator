@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.GridLayout;
@@ -53,9 +55,15 @@ public class RootFragment extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
         switch (item.getItemId()){
             case R.id.id_standard:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Standard()).commit();
+                this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                break;
+            case R.id.id_scientific:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Scientific()).commit();
+                this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);

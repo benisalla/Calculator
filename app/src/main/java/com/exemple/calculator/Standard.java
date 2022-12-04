@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Interpolator;
 import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Standard extends Fragment implements View.OnClickListener {
     public String CalcT = "";
@@ -45,7 +48,7 @@ public class Standard extends Fragment implements View.OnClickListener {
             Element = "";
         }
         boolean test = true;
-        String []arr = {"/","+","-","*"};
+        String []arr = {"/","+","-","*","%"};
         if(CalcB != "0"){
             for(String str : arr){
                 if(str == Data.get(Data.size()-1)){
@@ -72,24 +75,36 @@ public class Standard extends Fragment implements View.OnClickListener {
         if(Data.size() >= 1){
             if(Data.size()%2 == 0)
                 Data.remove(Data.size()-1);
-
-            double result = Double.valueOf(Data.get(0));
-            for(int i = 1; i<Data.size(); i+=2){
-                if(Data.get(i) == "+")
-                    result += Double.valueOf(Data.get(i+1));
-                else if(Data.get(i) == "*")
-                    result *= Double.valueOf(Data.get(i+1));
-                else if(Data.get(i) == "-")
-                    result -= Double.valueOf(Data.get(i+1));
-                else if(Data.get(i) == "/")
-                    result /= Double.valueOf(Data.get(i+1));
-            }
-            CalcT = ""+result;
+            CalcT = ""+CalculateWithoutPara(String.join(" ",Data));
         }
 
         CalcB = "0";
         Data = new ArrayList<String>();
         render();
+    }
+
+    public double CalculateWithoutPara(String exp) {
+        exp = exp.replaceAll(" \\- ", " \\+ \\-");
+        List<String> list = new ArrayList<String>();
+        Collections.addAll(list, exp.split(" \\+ ", 0));
+        double sum = 0;
+        for (String block : list) {
+            String[] arr = block.split(" ", 0);
+            double result = Double.parseDouble(arr[0]);
+            for (int i=1; i<arr.length; i=i+2) {
+                if(arr[i].equals("*")) {
+                    result = result * Double.parseDouble(arr[i + 1]);
+                }
+                if(arr[i].equals("%")) {
+                    result = result % Double.parseDouble(arr[i + 1]);
+                }
+                if(arr[i].equals("/")) {
+                    result = result / Double.parseDouble(arr[i + 1]);
+                }
+            }
+            sum += result;
+        }
+        return sum;
     }
 
     public void power(){
@@ -144,8 +159,8 @@ public class Standard extends Fragment implements View.OnClickListener {
                     Toast.makeText(getContext(), Ele, Toast.LENGTH_SHORT).show();
                 }
             }
-            render();
         }
+        render();
     }
 
     public void deleteAll(){
@@ -185,6 +200,7 @@ public class Standard extends Fragment implements View.OnClickListener {
         all_ids.add(R.id.bai_mod);
         all_ids.add(R.id.bai_ce);
         all_ids.add(R.id.bai_c);
+        all_ids.add(R.id.bai_delete);
     }
 
     @Override
@@ -199,6 +215,8 @@ public class Standard extends Fragment implements View.OnClickListener {
         ObjB = (TextView) rootView.findViewById(R.id.bai_screen_B);
         ObjT = (TextView) rootView.findViewById(R.id.bai_screen_T);
 
+
+
         for (int num : all_ids) {
             rootView.findViewById(num).setOnClickListener(this);
         }
@@ -208,6 +226,12 @@ public class Standard extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        v.animate().scaleY(0.6f).scaleX(0.6f).setDuration(200).setInterpolator(new Interpolator() {
+            @Override
+            public float getInterpolation(float paramFloat) {
+                return Math.abs(paramFloat -1f);
+            }
+        });
         switch (v.getId()){
             case R.id.bai_one: NumberClickHandler("1"); break;
             case R.id.bai_two: NumberClickHandler("2"); break;
@@ -229,9 +253,11 @@ public class Standard extends Fragment implements View.OnClickListener {
             case R.id.bai_inv: reverse(); break;
             case R.id.bai_pow: power(); break;
             case R.id.bai_not_pow: sqrt(); break;
-            case R.id.bai_mod: mod(); break;
+            case R.id.bai_mod: OperationClickHandler("%"); break;
             case R.id.bai_c: deleteAll(); break;
             case R.id.bai_ce: deleteInput(); break;
+            case R.id.bai_delete: delete(); break;
+            default: break;
         }
     }
 }

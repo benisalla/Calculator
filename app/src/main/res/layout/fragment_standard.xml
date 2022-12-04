@@ -89,13 +89,16 @@
             android:textColor="#eee"
             android:textSize="20sp" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/bai_delete"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:background="@drawable/delete_letter"
-            android:backgroundTint="#eee"
+            android:backgroundTint="#00000000"
+            android:clickable="true"
+
+            android:foreground="@drawable/delete_letter"
+            android:foregroundTint="#fff"
             android:padding="10dp"
             android:scaleX="0.8"
             android:scaleY="0.8" />
@@ -114,7 +117,7 @@
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:backgroundTint="#702E2D2D"
-            android:text="@string/power"
+            android:text="@string/x2"
             android:textColor="#eee"
             android:textSize="13sp" />
 
@@ -247,6 +250,7 @@
         <Button
             android:id="@+id/bai_opp"
             android:layout_width="80dp"
+            android:text="+/-"
             android:layout_height="70dp"
             android:backgroundTint="#111"
             android:textColor="#eee"
