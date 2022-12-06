@@ -58,12 +58,16 @@ public class RootFragment extends AppCompatActivity implements NavigationView.On
 
         switch (item.getItemId()){
             case R.id.id_standard:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Standard()).commit();
                 this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Standard()).commit();
                 break;
             case R.id.id_scientific:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Scientific()).commit();
                 this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Scientific()).commit();
+                break;
+            case R.id.id_graphic:
+                this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Graphic()).commit();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);

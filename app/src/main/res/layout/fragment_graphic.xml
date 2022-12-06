@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Graphic">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.androidplot.xy.XYPlot
+            android:id="@+id/graph_ploter"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:title="sin(x)"
+            app:titleTextSize="20sp"
+            app:titleTextColor="#fff"
+            android:padding="10dp"
+            ></com.androidplot.xy.XYPlot>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9F9C8D8D"
+            android:orientation="horizontal"
+            android:outlineAmbientShadowColor="#CC1212"
+            android:outlineSpotShadowColor="#A30F0F"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_bordered"
+                android:backgroundTint="#C9FFFFFF"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="7dp"
+                android:paddingEnd="7dp"
+                android:singleLine="true"
+                android:textColor="#222" />
+
+            <Button
+                android:id="@+id/plot_invoker"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:background="@drawable/rounded_bordered"
+                android:foreground="@drawable/start_plot"
+                android:gravity="center"
+                android:padding="0dp"
+                app:iconTint="#DCB7B7" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

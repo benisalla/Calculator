@@ -4,8 +4,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="exp" >&#8495;</string>
-    <string name="expx" >&#8495;<sup>x</sup></string>
+    <string name="exp">&#8495;</string>
+    <string name="expx">&#8495;<sup>x</sup></string>
     <string name="pi">π</string>
     <string name="ln">&#x33D1;</string>
     <string name="log">&#x33D2;</string>
@@ -19,7 +19,7 @@
     <string name="asinh">sinh<sup>-1</sup></string>
     <string name="acosh">cosh<sup>-1</sup></string>
     <string name="atanh">tanh<sup>-1</sup></string>
-    <string name="sqrt2" >&#x221A;x</string>
+    <string name="sqrt2">&#x221A;x</string>
     <string name="sqrt3"><sup>3</sup>&#x221A;x</string>
     <string name="sqrty"><sup>y</sup>&#x221A;x</string>
     <string name="logyx">&#x33D2;<sub>y</sub></string>

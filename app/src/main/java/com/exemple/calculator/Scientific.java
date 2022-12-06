@@ -51,16 +51,20 @@ public class Scientific extends Fragment implements View.OnClickListener {
             else
                 Result += ")";
         }else if(leftPara == rightPara){
-            Result += "*(";
+            if(isOperator(list.get(list.size()-1)))
+                Result += "(";
+            else
+                Result += "*(";
         }else{
             Result += "(";
         }
         render();
     }
     public void Calculate(){
-        //int index = Result.indexOf('e');
+        Result = Result.replaceAll("ex","kk");
         Result = Result.replaceAll("e","2.71828182846");
         Result = Result.replaceAll("π","3.14159265359");
+        Result = Result.replaceAll("kk","ex");
 
         if(Math_Exp_Evaluator.CalculateFromExpression(Result) != 0)
             Result = Math_Exp_Evaluator.CalculateFromExpression(Result)+"";
