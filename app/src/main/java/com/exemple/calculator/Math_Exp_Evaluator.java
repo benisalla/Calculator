@@ -1,6 +1,7 @@
 package com.exemple.calculator;
 
 public class Math_Exp_Evaluator {
+    public static String ErrorMessage="";
     private static final double ASINH_COEF[] = { -.12820039911738186343372127359268e+0,
             -.58811761189951767565211757138362e-1, .47274654322124815640725249756029e-2,
             -.49383631626536172101360174790273e-3, .58506207058557412287494835259321e-4,
@@ -121,7 +122,7 @@ public class Math_Exp_Evaluator {
             double parse() {
                 getNextChar();
                 double x = parseExpression();
-                if (current < exp.length()) throw new RuntimeException("Unexpected: " + (char)next);
+                if (current < exp.length()) ErrorMessage = "Unexpected: " + (char)next;
                 return x;
             }
             //--------------------------------------------------------
@@ -152,7 +153,7 @@ public class Math_Exp_Evaluator {
                 int startcurrent = this.current;
                 if (consume('(')) {
                     x = parseExpression();
-                    if (!consume(')')) throw new RuntimeException("Missing ')'");
+                    if (!consume(')')) ErrorMessage = "Missing ')'";
                 } else if ((next >= '0' && next <= '9') || next == '.') {
                     while ((next >= '0' && next <= '9') || next == '.') getNextChar();
                     x = Double.parseDouble(exp.substring(startcurrent, this.current));
@@ -161,7 +162,7 @@ public class Math_Exp_Evaluator {
                     String func = exp.substring(startcurrent, this.current);
                     if (consume('(')) {
                         x = parseExpression();
-                        if (!consume(')')) throw new RuntimeException("Missing ')' after argument to " + func);
+                        if (!consume(')')) ErrorMessage = "Missing ')' after argument to " + func;
                     } else {
                         x = parseFactor();
                     }
@@ -182,9 +183,10 @@ public class Math_Exp_Evaluator {
                     else if (func.equals("log")) x = Math.log10(x);
                     else if (func.equals("abs")) x = Math.abs(x);
                     else if (func.equals("exp")) x = Math.exp(x);
-                    else throw new RuntimeException("Unknown function: " + func);
+                    ErrorMessage = "Unknown function: " + func;
                 } else {
-                    throw new RuntimeException("Unexpected: " + (char)next);
+                    ErrorMessage = "Unexpected: " + (char)next;
+                    return 0;
                 }
                 if (consume('^')) x = Math.pow(x, parseFactor());
                 return x;

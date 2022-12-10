@@ -10,8 +10,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.GridLayout;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -69,6 +67,13 @@ public class RootFragment extends AppCompatActivity implements NavigationView.On
                 this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Graphic()).commit();
                 break;
+            case R.id.id_programmer:
+                this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Programmer()).commit();
+                break;
+
+
+                
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

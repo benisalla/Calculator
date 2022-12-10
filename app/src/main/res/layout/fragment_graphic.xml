@@ -20,10 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:title="sin(x)"
-            app:titleTextSize="20sp"
-            app:titleTextColor="#fff"
-            android:padding="10dp"
+            android:padding="0dp"
+            app:borderColor="#EF5322"
+            app:borderThickness="5dp"
             ></com.androidplot.xy.XYPlot>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -36,11 +35,11 @@
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent">
 
             <EditText
+                android:id="@+id/NewFunction"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="5dp"
@@ -54,7 +53,7 @@
                 android:singleLine="true"
                 android:textColor="#222" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/plot_invoker"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -62,9 +61,11 @@
                 android:layout_margin="0dp"
                 android:background="@drawable/rounded_bordered"
                 android:foreground="@drawable/start_plot"
+                android:foregroundTint="#FFFFFF"
+                android:backgroundTint="#EF5322"
                 android:gravity="center"
                 android:padding="0dp"
-                app:iconTint="#DCB7B7" />
+                app:iconTint="#EF5322" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>

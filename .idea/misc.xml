@@ -11,6 +11,8 @@
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/graphic_icon.xml" value="0.1" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/length_icon.xml" value="0.1" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/menu_icons.xml" value="0.1015" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/no_orange_border.xml" value="0.161" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/orange_border.xml" value="0.1885" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/programmer_icon.xml" value="0.1" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/rounded.xml" value="0.1885" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/drawable/rounded_bordered.xml" value="0.1885" />
@@ -23,9 +25,10 @@
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/activity_rootfragment.xml" value="0.1" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/activity_sidebar_navigation.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/activity_temperature.xml" value="0.1513467293715263" />
-        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/fragment_graphic.xml" value="0.22" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/fragment_graphic.xml" value="0.1" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/fragment_programmer.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/fragment_scientific.xml" value="0.22" />
-        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/fragment_standard.xml" value="0.22" />
+        <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/fragment_standard.xml" value="0.1" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/layout/nav_bar_layout.xml" value="0.1" />
         <entry key="..\:/Users/Pc/AndroidStudioProjects/Calculator/app/src/main/res/menu/menu.xml" value="0.22" />
       </map>
@@ -36,5 +39,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>
