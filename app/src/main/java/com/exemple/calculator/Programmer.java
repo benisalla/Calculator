@@ -27,11 +27,15 @@ public class Programmer extends Fragment implements View.OnClickListener {
     public ArrayList<Integer> all_ids = new ArrayList<Integer>();
     public String currentExp = "0", hexValue = "0", decValue = "0", octValue = "0", binValue = "0";
     public String lastExp = "0";
+    public String hexBehindExp = "0";
+    public String binBehindExp = "0";
+    public String decBehindExp = "0";
+    public String octBehindExp = "0";
     public String provider = "Dec";
 
     public void render(){
         bottomScreen.setText(currentExp);
-        topScreen.setText(currentExp);
+        topScreen.setText(lastExp);
         HexText.setText(hexValue);
         BinText.setText(binValue);
         DecText.setText(decValue);
@@ -43,29 +47,91 @@ public class Programmer extends Fragment implements View.OnClickListener {
         UpdateTransformation();
     }
     public void OperationClickHandler(String op){
-        if (isOperator(lastExp.substring(lastExp.length()-1,lastExp.length()))){
-            lastExp.substring(lastExp.length()-1,currentExp.length());
+        if(!currentExp.equals("0")){
+            if(lastExp.substring(lastExp.length()-1,lastExp.length()).equals("=")) {
+                lastExp = "0";
+                hexBehindExp = "0";
+                binBehindExp = "0";
+                decBehindExp = "0";
+                octBehindExp = "0";
+            }
+            if(lastExp.equals("0")) {
+                lastExp = currentExp + op;
+                hexBehindExp = hexValue + op;
+                binBehindExp = binValue + op;
+                decBehindExp = decValue + op;
+                octBehindExp = octValue + op;
+            }
+            else {
+                lastExp += currentExp + op;
+                hexBehindExp += hexValue + op;
+                binBehindExp += binValue + op;
+                decBehindExp += decValue + op;
+                octBehindExp += octValue + op;
+            }
+        }else{
+            if (isOperator(lastExp.substring(lastExp.length()-1,lastExp.length()))){
+                lastExp = lastExp.substring(0,lastExp.length()-1)+op;
+                hexBehindExp += hexBehindExp.substring(0,hexBehindExp.length()-1) + op;
+                binBehindExp += binBehindExp.substring(0,binBehindExp.length()-1) + op;
+                decBehindExp += decBehindExp.substring(0,decBehindExp.length()-1) + op;
+                octBehindExp += octBehindExp.substring(0,octBehindExp.length()-1) + op;
+            }
         }
-
-        if(!lastExp.substring(0,1).equals("0"))
-            lastExp += op;
-        render();
+        currentExp = "0";
+        UpdateTransformation();
     }
     public void ParenthesisHanlder(String para){
-        currentExp += para;
+        if(para.equals("(")){
+            if(lastExp.equals("0")){
+                lastExp = para;
+                hexBehindExp = para;
+                binBehindExp = para;
+                decBehindExp = para;
+                octBehindExp = para;
+            }
+            else{
+                lastExp += para;
+                hexBehindExp += para;
+                binBehindExp += para;
+                decBehindExp += para;
+                octBehindExp += para;
+            }
+        }else{
+            if(!lastExp.equals("0")) {
+                lastExp += currentExp + para+"+";
+                hexBehindExp += hexValue + para+"+";
+                binBehindExp += binValue + para+"+";
+                decBehindExp += decValue + para+"+";
+                octBehindExp += octValue + para+"+";
+            }
+        }
+
         render();
     }
     public void Calculate(){
+        if(!decBehindExp.equals("0")){
+            if(!currentExp.equals("0"))
+                decBehindExp += decValue;
+            else
+                decBehindExp = decBehindExp.substring(0,decBehindExp.length()-1);
 
-        if(Math_Exp_Evaluator.CalculateFromExpression(currentExp) != 0)
-            currentExp = Math_Exp_Evaluator.CalculateFromExpression(currentExp)+"";
-        else
-            currentExp = "0";
-        render();
+            lastExp += currentExp+"=";
+
+            if(Math_Exp_Evaluator.CalculateFromExpression(decBehindExp) != 0)
+                currentExp = ((int) Math_Exp_Evaluator.CalculateFromExpression(decBehindExp)) +"";
+            else
+                currentExp = "0";
+
+            hexBehindExp="0"; binBehindExp="0"; decBehindExp="0"; octBehindExp="0";
+            UpdateTransformation();
+        }
     }
+
     public void delete_all(){
         currentExp = "0";
-        lastExp = "0";
+        lastExp = "0"; hexBehindExp="0"; binBehindExp="0"; decBehindExp="0"; octBehindExp="0";
+
         UpdateTransformation();
     }
 
@@ -113,14 +179,17 @@ public class Programmer extends Fragment implements View.OnClickListener {
         provider = newProvider;
         if(provider.equals("Dec")){
             currentExp = decValue;
+            lastExp = decBehindExp;
         }else if(provider.equals("Hex")){
             currentExp = hexValue;
+            lastExp = hexBehindExp;
         }else if(provider.equals("Bin")){
             currentExp = binValue;
+            lastExp = binBehindExp;
         }else{
             currentExp = octValue;
+            lastExp = octBehindExp;
         }
-        UpdateTransformation();
         HexBody.setBackground(getResources().getDrawable(R.drawable.no_orange_border));
         DecBody.setBackground(getResources().getDrawable(R.drawable.no_orange_border));
         BinBody.setBackground(getResources().getDrawable(R.drawable.no_orange_border));
@@ -182,8 +251,7 @@ public class Programmer extends Fragment implements View.OnClickListener {
             Btn_9.setTextColor(getResources().getColor(R.color.blocked));
         }
 
-
-        Toast.makeText(getContext(),provider,Toast.LENGTH_SHORT).show();
+        UpdateTransformation();
     }
 
     @Override
@@ -302,6 +370,10 @@ public class Programmer extends Fragment implements View.OnClickListener {
             case R.id.id_prog_Dec_body: setProviderTo("Dec"); break;
             case R.id.id_prog_Oct_body: setProviderTo("Oct"); break;
             case R.id.id_prog_Bin_body: setProviderTo("Bin"); break;
+
+            case R.id.id_prog_equal: Calculate(); break;
+
+            default:break;
         }
     }
 }
